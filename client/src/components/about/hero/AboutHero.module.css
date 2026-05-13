@@ -1,0 +1,200 @@
+.section {
+  padding: 120px 0 60px 0;
+  background-color: var(--background);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle gold glow at the top */
+.section::before {
+  content: '';
+  position: absolute;
+  top: -150px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 300px;
+  background: radial-gradient(ellipse, rgba(210, 172, 71, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.container {
+  max-width: var(--container-max);
+  margin: 5rem auto;
+  padding: 0 var(--space-md);
+  position: relative;
+  z-index: 2;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: 56px;
+  line-height: 1.2;
+  color: var(--foreground);
+  font-weight: 500;
+  margin-bottom: 24px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.accent {
+  color: var(--primary);
+  font-weight: 500;
+}
+
+.subtitle {
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 0 auto 60px auto;
+}
+
+.statsContainer {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+.statWrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.1);
+  margin-bottom: 30px;
+}
+
+.statContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.statText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.statNumber {
+  font-family: var(--font-heading);
+  font-size: 48px;
+  color: var(--foreground);
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.statLabel {
+  color: #fffefe;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.statIcon {
+  width: 60px;
+  height: 20px;
+  position: relative;
+  opacity: 0.3;
+  /* Making it a bit subtle as in the image */
+}
+
+/* Gold mask for the icon if needed, or just let it be if it's already gold. The image shows a gold outline wing. */
+.statIcon img {
+  object-fit: contain;
+  /* If the original is white, we can mask it with gold */
+  /* filter: sepia(1) hue-rotate(15deg) saturate(3) brightness(0.8); */
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 80px;
+}
+
+.consultBtn {
+  padding: 14px 40px;
+  border-radius: 12px;
+  border: 1px solid rgba(210, 172, 71, 0.5);
+  background-color: #1A1A1A;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.consultBtn:hover {
+  background-color: rgba(210, 172, 71, 0.1);
+}
+
+.exploreBtn {
+  border-radius: 14px;
+  padding: .65rem 3.2rem;
+  font-weight: 600;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.exploreBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(210, 172, 71, 0.3);
+}
+
+.imageWrapper {
+  width: 100%;
+  height: 500px;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.heroImage {
+  object-fit: cover;
+}
+
+@media (max-width: 1024px) {
+  .title {
+    font-size: 44px;
+  }
+
+  .statsContainer {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .statContent {
+    justify-content: flex-start;
+    gap: 40px;
+  }
+
+  .imageWrapper {
+    height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 32px;
+  }
+
+  .buttonGroup {
+    flex-direction: column;
+  }
+
+  .imageWrapper {
+    height: 300px;
+  }
+}

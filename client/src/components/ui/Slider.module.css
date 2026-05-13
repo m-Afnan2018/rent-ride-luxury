@@ -1,0 +1,24 @@
+.sliderContainer {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.sliderTrack {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+  padding-bottom: 10px;
+  scroll-behavior: smooth;
+}
+
+.sliderTrack::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.sliderTrack > * {
+  scroll-snap-align: center; /* Center snap feels better for full-bleed sliders */
+  flex-shrink: 0;
+}
