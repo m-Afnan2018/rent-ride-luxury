@@ -1,0 +1,180 @@
+.section {
+  padding: 100px 0;
+  background-color: var(--background);
+  overflow: hidden;
+  position: relative;
+}
+
+.headerContainer {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.title {
+  font-size: 44px;
+  font-family: var(--font-heading);
+  color: var(--foreground);
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.accent {
+  color: var(--primary);
+}
+
+.subtitle {
+  color: #888;
+  font-size: 15px;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.sliderWrapper {
+  width: 100%;
+}
+
+.card {
+  width: 320px;
+  height: 520px;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.4s ease;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.card:hover img {
+  transition: all 0.7s ease;
+  transform: scale(1.1);
+}
+
+/* Image Card Styles */
+.imageCard {
+  background-color: #222;
+}
+
+.image {
+  object-fit: cover;
+}
+
+/* Review Card Styles */
+.reviewCard {
+  background-color: #3D3614;
+  /* Olive/Dark Brownish */
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.stars {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 30px;
+}
+
+.starIcon {
+  color: #FFF;
+  font-size: 20px;
+}
+
+.starFilled {
+  color: #FFF;
+}
+
+.starEmpty {
+  opacity: 0.3;
+}
+
+.reviewText {
+  color: #FFF;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 500;
+  margin-bottom: auto;
+}
+
+.authorSection {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  background-color: #555;
+}
+
+.authorInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.authorName {
+  color: #FFF;
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.authorRole {
+  color: #AAA;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Controls */
+.controlsContainer {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.controlBtn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: var(--foreground);
+}
+
+.controlBtn:hover {
+  transform: scale(1.1);
+}
+
+.controlIcon {
+  width: 44px;
+  height: 44px;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: 280px;
+    height: 460px;
+  }
+
+  .title {
+    font-size: 32px;
+  }
+}

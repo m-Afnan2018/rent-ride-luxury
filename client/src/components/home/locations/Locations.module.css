@@ -1,0 +1,137 @@
+.section {
+  padding: 40px 0;
+  background-color: var(--background);
+  overflow: hidden;
+  position: relative;
+}
+
+.headerContainer {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.title {
+  font-size: 40px;
+  font-family: var(--font-heading);
+  color: var(--foreground);
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.accent {
+  color: var(--primary);
+  font-weight: 500;
+  margin-left: 8px;
+}
+
+.subtitle {
+  color: var(--muted);
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.8;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.sliderWrapper {
+  width: 100%;
+}
+
+.locationCard {
+  width: 300px;
+  height: 520px;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  cursor: pointer;
+}
+
+.locationCard:hover .locationImage {
+  transform: scale(1.05);
+}
+
+.locationImage {
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 18%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
+  display: flex;
+  align-items: flex-end;
+  padding: 30px;
+}
+
+.cityName {
+  color: var(--foreground);
+  font-family: var(--font-heading);
+  font-size: 21px;
+  font-weight: 500;
+}
+
+/* Controls */
+.controlsContainer {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.controlBtn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.controlIcon {
+  width: 44px;
+  height: 44px;
+  position: relative;
+  transition: transform 0.3s ease;
+  border: 1px solid #222;
+  transition: all 0.3s ease;
+  border-radius: 50%;
+}
+
+.controlBtn:hover .controlIcon {
+  background-color: white;
+}
+
+.controlBtn:hover img {
+  filter: invert();
+}
+
+@media (max-width: 1024px) {
+  .locationCard {
+    width: 260px;
+    height: 450px;
+  }
+}
+
+@media (max-width: 768px) {
+  .locationCard {
+    width: 240px;
+    height: 420px;
+  }
+}
