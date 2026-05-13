@@ -109,10 +109,17 @@
   height: 44px;
   position: relative;
   transition: transform 0.3s ease;
+  border: 1px solid #222;
+  transition: all 0.3s ease;
+  border-radius: 50%;
 }
 
 .controlBtn:hover .controlIcon {
-  transform: scale(1.1);
+  background-color: white;
+}
+
+.controlBtn:hover img {
+  filter: invert();
 }
 
 @media (max-width: 1024px) {
