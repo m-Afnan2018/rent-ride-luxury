@@ -24,7 +24,7 @@
   padding: 0 var(--space-md);
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 16px;
   position: relative;
   z-index: 1;
 }

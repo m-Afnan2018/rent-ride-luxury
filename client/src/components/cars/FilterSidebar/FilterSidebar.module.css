@@ -1,0 +1,158 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sectionTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--foreground);
+  margin: 0;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  color: var(--muted);
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.option:hover {
+  color: var(--foreground);
+}
+
+.active {
+  color: var(--foreground);
+  font-weight: 600;
+}
+
+.radio {
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--primary);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.radioInner {
+  width: 10px;
+  height: 10px;
+  background-color: var(--primary);
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.3s ease;
+}
+
+.active .radioInner {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Price Slider */
+.priceSliderWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sliderContainer {
+  position: relative;
+  width: 100%;
+  height: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.sliderTrack {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  z-index: 1;
+}
+
+.sliderProgress {
+  position: absolute;
+  height: 100%;
+  background-color: var(--primary);
+}
+
+.rangeInput {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: none;
+  pointer-events: none;
+  -webkit-appearance: none;
+  appearance: none;
+  z-index: 2;
+  margin: 0;
+}
+
+/* Custom Thumb Styles */
+.rangeInput::-webkit-slider-thumb {
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+  pointer-events: auto;
+  -webkit-appearance: none;
+  box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+
+.rangeInput::-moz-range-thumb {
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+  pointer-events: auto;
+  border: none;
+  box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+
+.priceRangeText {
+  font-size: 14px;
+  color: var(--foreground);
+  font-weight: 600;
+}
+
+.resetBtn {
+  margin-top: 20px;
+  padding: 12px;
+  background-color: transparent;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.resetBtn:hover {
+  background-color: var(--primary);
+  color: #000;
+}

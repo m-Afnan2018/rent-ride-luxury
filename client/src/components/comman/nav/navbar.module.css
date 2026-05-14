@@ -17,6 +17,12 @@
   color: var(--foreground);
 }
 
+.logo {
+  height: auto;
+  max-width: 144px;
+  object-fit: contain;
+}
+
 .logoIcon {
   width: 48px;
   height: auto;
@@ -98,24 +104,6 @@
   gap: var(--space-md);
 }
 
-.logoTextContainer {
-  display: flex;
-  flex-direction: column;
-  letter-spacing: 0.2em;
-  font-family: var(--font-heading);
-}
-
-.logoTop {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--foreground);
-}
-
-.logoBottom {
-  font-size: 0.75rem;
-  color: var(--primary);
-  letter-spacing: 0.4em;
-}
 
 /* Hamburger Button */
 .hamburger {
@@ -199,7 +187,7 @@
 
 .mobileNavLinks li a {
   font-family: var(--font-heading);
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: var(--foreground);
   font-weight: 600;
 }
@@ -267,5 +255,11 @@
 
   .navbar {
     padding: var(--space-lg) var(--space-xl);
+  }
+}
+
+@media (max-width: 768px) {
+  .logo {
+    max-width: 75px;
   }
 }

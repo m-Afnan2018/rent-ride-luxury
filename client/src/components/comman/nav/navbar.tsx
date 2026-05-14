@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import styles from './navbar.module.css';
 import Button from '@/components/ui/Button';
+import { NAV_LINKS } from '@/constants/nav';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -24,27 +25,35 @@ export default function Navbar() {
     <nav className={styles.navbar}>
       {/* ... (Logo and Desktop Nav remain the same) */}
       <Link href="/" className={styles.logoContainer}>
-        <div className={styles.logoTextContainer}>
-          <div className={styles.logoTop}>RENT RIDE</div>
-          <div className={styles.logoBottom}>LUXURY</div>
-        </div>
+        <Image
+          src="/logo.svg"
+          alt="Rent Ride Luxury"
+          width={144}
+          height={64}
+          className={styles.logo}
+          priority
+        />
       </Link>
 
       <ul className={styles.navLinks}>
-        <li><Link href="/">Home</Link></li>
-        <li><Link href="/about">About Us</Link></li>
-        <li className={styles.dropdown}>
-          <span>Categories</span>
-          <div className={styles.dropdownMenu}>
-            <Link href="/category/mercedes" className={styles.dropdownItem}>Mercedes</Link>
-            <Link href="/category/ford" className={styles.dropdownItem}>Ford Motor</Link>
-            <Link href="/category/land-rover" className={styles.dropdownItem}>Land Rover</Link>
-            <Link href="/category/tesla" className={styles.dropdownItem}>Tesla</Link>
-          </div>
-        </li>
-        <li><Link href="/cars">Cars</Link></li>
-        <li><Link href="/blogs">Blogs</Link></li>
-        <li><Link href="/contact">Contact Us</Link></li>
+        {NAV_LINKS.map((link) => (
+          link.dropdown ? (
+            <li key={link.label} className={styles.dropdown}>
+              <span>{link.label}</span>
+              <div className={styles.dropdownMenu}>
+                {link.dropdown.map((item) => (
+                  <Link key={item.label} href={item.href} className={styles.dropdownItem}>
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            </li>
+          ) : (
+            <li key={link.label}>
+              <Link href={link.href!}>{link.label}</Link>
+            </li>
+          )
+        ))}
       </ul>
 
       <div className={styles.navActions}>
@@ -60,32 +69,36 @@ export default function Navbar() {
 
       <div className={`${styles.mobileMenu} ${isMenuOpen ? styles.mobileMenuOpen : ''}`}>
         <ul className={styles.mobileNavLinks}>
-          <li><Link href="/" onClick={toggleMenu}>Home</Link></li>
-          <li><Link href="/about" onClick={toggleMenu}>About Us</Link></li>
-          <li className={styles.mobileDropdown}>
-             <div className={styles.mobileDropdownLabel} onClick={toggleCategories}>
-                Categories
-                <svg 
-                  className={`${styles.arrow} ${isCategoriesOpen ? styles.arrowRotate : ''}`} 
-                  width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
-                >
-                  <path d="m6 9 6 6 6-6"/>
-                </svg>
-             </div>
-             <div className={`${styles.mobileDropdownItems} ${isCategoriesOpen ? styles.mobileDropdownItemsOpen : ''}`}>
-                <Link href="/category/mercedes" onClick={toggleMenu}>Mercedes</Link>
-                <Link href="/category/ford" onClick={toggleMenu}>Ford Motor</Link>
-                <Link href="/category/land-rover" onClick={toggleMenu}>Land Rover</Link>
-                <Link href="/category/tesla" onClick={toggleMenu}>Tesla</Link>
-             </div>
-          </li>
-          <li><Link href="/cars" onClick={toggleMenu}>Cars</Link></li>
-          <li><Link href="/blogs" onClick={toggleMenu}>Blogs</Link></li>
-          <li><Link href="/contact" onClick={toggleMenu}>Contact Us</Link></li>
+          {NAV_LINKS.map((link) => (
+            link.dropdown ? (
+              <li key={link.label} className={styles.mobileDropdown}>
+                <div className={styles.mobileDropdownLabel} onClick={toggleCategories}>
+                  {link.label}
+                  <svg
+                    className={`${styles.arrow} ${isCategoriesOpen ? styles.arrowRotate : ''}`}
+                    width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+                  >
+                    <path d="m6 9 6 6 6-6" />
+                  </svg>
+                </div>
+                <div className={`${styles.mobileDropdownItems} ${isCategoriesOpen ? styles.mobileDropdownItemsOpen : ''}`}>
+                  {link.dropdown.map((item) => (
+                    <Link key={item.label} href={item.href} onClick={toggleMenu}>
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              </li>
+            ) : (
+              <li key={link.label}>
+                <Link href={link.href!} onClick={toggleMenu}>{link.label}</Link>
+              </li>
+            )
+          ))}
         </ul>
         <div className={styles.mobileActions}>
-            <Button variant="primary" rounded="md" fullWidth leftIcon={<WhatsApIcon />}>WhatsApp</Button>
-            <Button variant="outline" rounded="md" fullWidth leftIcon={<CallIcon />}>Call Us</Button>
+          <Button variant="primary" rounded="md" fullWidth leftIcon={<WhatsApIcon />}>WhatsApp</Button>
+          <Button variant="outline" rounded="md" fullWidth leftIcon={<CallIcon />}>Call Us</Button>
         </div>
       </div>
     </nav>
@@ -93,15 +106,15 @@ export default function Navbar() {
 }
 
 const WhatsApIcon = () => {
-    return (
-        <Image src="/icons/whatsapp-fill.png" alt="WhatsApp" width={20} height={20} />
-    );
+  return (
+    <Image src="/icons/whatsapp-fill.png" alt="WhatsApp" width={20} height={20} />
+  );
 }
 
 const CallIcon = () => {
-    return (
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-        </svg>
-    );
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+    </svg>
+  );
 }
