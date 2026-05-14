@@ -67,7 +67,7 @@
   background: linear-gradient(135deg, #D2AC47 0%, #A6832B 100%);
   padding: 50px 40px;
   border-radius: 20px;
-  color: #000;
+  color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -85,14 +85,14 @@
   font-size: 15px;
   line-height: 1.6;
   font-weight: 500;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(255, 255, 255, 0.8);
 }
 
 @media (max-width: 1024px) {
   .contentGrid {
     grid-template-columns: 1fr;
   }
-  
+
   .imageWrapper {
     height: 400px;
   }
@@ -102,7 +102,7 @@
   .title {
     font-size: 32px;
   }
-  
+
   .goldCard {
     padding: 30px 20px;
   }

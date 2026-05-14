@@ -22,7 +22,6 @@
 }
 
 .accent {
-  font-family: var(--primary-dark);
   color: var(--primary);
   font-weight: 500;
   margin-right: 8px;
@@ -41,21 +40,20 @@
 }
 
 .brandCard {
-  width: 320px;
-  height: 200px;
-  background-color: var(--card-bg);
-  border-radius: 12px;
+  width: 180px;
+  height: 100px;
+  background-color: transparent;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 40px;
-  transition: transform 0.3s ease, background-color 0.3s ease;
+  padding: 10px;
+  transition: transform .5s ease-in-out;
   cursor: pointer;
+  perspective: 1000px;
 }
 
 .brandCard:hover {
-  transform: translateY(-5px);
-  background-color: rgba(60, 60, 60, 0.8);
+  transform: translateY(-5px) rotateY(380deg);
 }
 
 .brandLogo {
@@ -82,7 +80,7 @@
 .controlBtn {
   width: 48px;
   height: 48px;
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.8);
   border-radius: 50%;
   background-color: transparent;
   display: flex;
@@ -94,8 +92,7 @@
 }
 
 .controlBtn:hover {
-  background-color: var(--foreground);
-  color: var(--background);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .controlIcon {
@@ -105,13 +102,9 @@
   transition: filter 0.3s ease;
 }
 
-.controlBtn:hover .controlIcon {
-  filter: invert(1);
-}
-
 @media (max-width: 768px) {
   .brandCard {
-    width: 260px;
-    height: 160px;
+    width: 140px;
+    height: 80px;
   }
 }

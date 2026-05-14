@@ -42,20 +42,22 @@ export default function Testimonials() {
       <div className={styles.sliderWrapper}>
         <Slider ref={sliderRef} gap={24} paddingLeft={paddingOffset}>
           {TESTIMONIALS_DATA.map((item) => (
-            <div key={item.id} className={`${styles.card} ${item.type === 'image' ? styles.imageCard : styles.reviewCard}`}>
+            <div key={item.id} className={styles.card}>
+              <div className={styles.cardInner}>
+                
+                {/* Front of card (Image) */}
+                <div className={styles.cardFront}>
+                  <Image
+                    src={item.image || ''}
+                    alt={item.author?.name || 'Client Testimonial'}
+                    fill
+                    className={styles.image}
+                    sizes="(max-width: 768px) 280px, 320px"
+                  />
+                </div>
 
-              {item.type === 'image' ? (
-                /* Image Card */
-                <Image
-                  src={item.image || ''}
-                  alt={item.name || 'Client Testimonial'}
-                  fill
-                  className={styles.image}
-                  sizes="(max-width: 768px) 280px, 320px"
-                />
-              ) : (
-                /* Review Card */
-                <>
+                {/* Back of card (Review) */}
+                <div className={styles.cardBack}>
                   <div className={styles.stars}>
                     {[...Array(5)].map((_, i) => (
                       <span
@@ -85,9 +87,9 @@ export default function Testimonials() {
                       <span className={styles.authorRole}>{item.author?.role}</span>
                     </div>
                   </div>
-                </>
-              )}
+                </div>
 
+              </div>
             </div>
           ))}
         </Slider>
